@@ -45,6 +45,12 @@ class NewsView extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
+                        const SizedBox(height: 8.0),
+                        Text(
+                          article.description!,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        ),
                       ],
                     ),
                   ),
