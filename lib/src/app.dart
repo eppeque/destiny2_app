@@ -1,6 +1,7 @@
 import 'package:destiny2_app/src/news/news_bloc.dart';
 import 'package:destiny2_app/src/page_switcher.dart';
 import 'package:destiny2_app/src/settings/settings_controller.dart';
+import 'package:destiny2_app/src/settings/settings_view.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 
@@ -37,10 +38,13 @@ class Destiny2App extends StatelessWidget {
             return MaterialApp(
               title: 'Destiny 2',
               debugShowCheckedModeBanner: false,
-              home: PageSwitcher(newsBloc: newsBloc),
               theme: lightTheme,
               darkTheme: darkTheme,
               themeMode: settingsController.themeMode,
+              routes: {
+                PageSwitcher.route: (context) => PageSwitcher(newsBloc: newsBloc),
+                SettingsView.route:(context) => SettingsView(settingsController: settingsController),
+              },
             );
           }
         );

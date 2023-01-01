@@ -1,12 +1,15 @@
 import 'package:animations/animations.dart';
 import 'package:destiny2_app/src/news/news_bloc.dart';
 import 'package:destiny2_app/src/news/news_view.dart';
+import 'package:destiny2_app/src/settings/settings_view.dart';
 import 'package:flutter/material.dart';
 
 class PageSwitcher extends StatefulWidget {
   final NewsBloc newsBloc;
 
   const PageSwitcher({super.key, required this.newsBloc});
+
+  static const route = '/';
 
   @override
   State<PageSwitcher> createState() => _PageSwitcherState();
@@ -25,6 +28,13 @@ class _PageSwitcherState extends State<PageSwitcher> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Destiny 2'),
+        actions: [
+          IconButton(
+            tooltip: 'App settings',
+            icon: const Icon(Icons.settings_outlined),
+            onPressed: () => Navigator.pushNamed(context, SettingsView.route),
+          ),
+        ],
       ),
       body: PageTransitionSwitcher(
         transitionBuilder: (child, animation, secondaryAnimation) {
@@ -43,12 +53,12 @@ class _PageSwitcherState extends State<PageSwitcher> {
           NavigationDestination(
             icon: Icon(Icons.newspaper_outlined),
             selectedIcon: Icon(Icons.newspaper),
-            label: 'Actualités',
+            label: 'News',
           ),
           NavigationDestination(
             icon: Icon(Icons.person_outline),
             selectedIcon: Icon(Icons.person),
-            label: 'Mon gardien',
+            label: 'My Guardian',
           ),
         ],
       ),
