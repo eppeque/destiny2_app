@@ -51,7 +51,7 @@ class _$SearchResponseDetailSerializer
         ..add('destinyMemberships')
         ..add(serializers.serialize(value,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(User)])));
+                const FullType(BuiltList, const [const FullType(UserInfo)])));
     }
     return result;
   }
@@ -82,8 +82,8 @@ class _$SearchResponseDetailSerializer
           break;
         case 'destinyMemberships':
           result.destinyMemberships.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(User)]))!
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(UserInfo)]))!
               as BuiltList<Object?>);
           break;
       }
@@ -101,7 +101,7 @@ class _$SearchResponseDetail extends SearchResponseDetail {
   @override
   final String? bungieNetMembershipId;
   @override
-  final BuiltList<User>? destinyMemberships;
+  final BuiltList<UserInfo>? destinyMemberships;
 
   factory _$SearchResponseDetail(
           [void Function(SearchResponseDetailBuilder)? updates]) =>
@@ -173,10 +173,10 @@ class SearchResponseDetailBuilder
   set bungieNetMembershipId(String? bungieNetMembershipId) =>
       _$this._bungieNetMembershipId = bungieNetMembershipId;
 
-  ListBuilder<User>? _destinyMemberships;
-  ListBuilder<User> get destinyMemberships =>
-      _$this._destinyMemberships ??= new ListBuilder<User>();
-  set destinyMemberships(ListBuilder<User>? destinyMemberships) =>
+  ListBuilder<UserInfo>? _destinyMemberships;
+  ListBuilder<UserInfo> get destinyMemberships =>
+      _$this._destinyMemberships ??= new ListBuilder<UserInfo>();
+  set destinyMemberships(ListBuilder<UserInfo>? destinyMemberships) =>
       _$this._destinyMemberships = destinyMemberships;
 
   SearchResponseDetailBuilder();

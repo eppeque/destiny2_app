@@ -1,7 +1,8 @@
 import 'package:destiny2_app/src/search/search_bloc.dart';
+import 'package:destiny2_app/src/search/user_info.dart';
 import 'package:flutter/material.dart';
 
-class SearchView extends SearchDelegate {
+class SearchView extends SearchDelegate<UserInfo?> {
   SearchView(this.bloc);
 
   final SearchBloc bloc;
@@ -49,10 +50,19 @@ class SearchView extends SearchDelegate {
                       child: Row(
                         children: [
                           CircleAvatar(
-                            child: Image.network('https://bungie.net${e.iconPath}'),
+                            backgroundColor: Colors.black,
+                            child: Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: Image.network(
+                                'https://bungie.net${e.iconPath}',
+                              ),
+                            ),
                           ),
                           const SizedBox(width: 8.0),
-                          Text(e.displayName!),
+                          Text(
+                            e.displayName!,
+                            style: Theme.of(context).textTheme.titleSmall,
+                          ),
                         ],
                       ),
                     );
@@ -63,7 +73,7 @@ class SearchView extends SearchDelegate {
                 "${result.bungieGlobalDisplayName}#${result.bungieGlobalDisplayNameCode}",
                 style: Theme.of(context).textTheme.titleLarge,
               ),
-              onTap: () {},
+              onTap: () => close(context, result.destinyMemberships![0]),
             );
           }).toList(),
         );

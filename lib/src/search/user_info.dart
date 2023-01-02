@@ -2,10 +2,10 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'user.g.dart';
+part 'user_info.g.dart';
 
-abstract class User implements Built<User, UserBuilder> {
-  static Serializer<User> get serializer => _$userSerializer;
+abstract class UserInfo implements Built<UserInfo, UserInfoBuilder> {
+  static Serializer<UserInfo> get serializer => _$userInfoSerializer;
 
   String? get supplementalDisplayName;
 
@@ -27,6 +27,6 @@ abstract class User implements Built<User, UserBuilder> {
 
   int? get bungieGlobalDisplayNameCode;
 
-  User._();
-  factory User([void Function(UserBuilder) updates]) = _$User;
+  UserInfo._();
+  factory UserInfo([void Function(UserInfoBuilder) updates]) = _$UserInfo;
 }

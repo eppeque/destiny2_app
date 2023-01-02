@@ -1,8 +1,10 @@
 import 'package:animations/animations.dart';
 import 'package:destiny2_app/src/news/news_bloc.dart';
 import 'package:destiny2_app/src/news/news_view.dart';
+import 'package:destiny2_app/src/search/profile_view.dart';
 import 'package:destiny2_app/src/search/search_bloc.dart';
 import 'package:destiny2_app/src/search/search_view.dart';
+import 'package:destiny2_app/src/search/user_info.dart';
 import 'package:destiny2_app/src/settings/settings_view.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +22,21 @@ class PageSwitcher extends StatefulWidget {
 class _PageSwitcherState extends State<PageSwitcher> {
   int _selectedIndex = 0;
 
+  void _openProfileView(UserInfo? userInfo) {
+    if (userInfo == null) return;
+
+    final playerName = "${userInfo.bungieGlobalDisplayName!}#${userInfo.bungieGlobalDisplayNameCode}";
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => ProfileView(
+          membershipType: userInfo.membershipType!,
+          membershipId: userInfo.membershipId!,
+          playerName: playerName,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final pages = <Widget>[
@@ -34,9 +51,14 @@ class _PageSwitcherState extends State<PageSwitcher> {
           IconButton(
             tooltip: 'Search player',
             onPressed: () async {
-              final result = await showSearch(context: context, delegate: SearchView(SearchBloc()));
+              final result = await showSearch(
+                context: context,
+                delegate: SearchView(
+                  SearchBloc(),
+                ),
+              );
 
-              if (result == null) return;
+              _openProfileView(result);
             },
             icon: const Icon(Icons.search),
           ),
@@ -63,8 +85,7 @@ class _PageSwitcherState extends State<PageSwitcher> {
             setState(() => _selectedIndex = index),
         destinations: const [
           NavigationDestination(
-            icon: Icon(Icons.newspaper_outlined),
-            selectedIcon: Icon(Icons.newspaper),
+            icon: Icon(Icons.newspaper),
             label: 'News',
           ),
           NavigationDestination(

@@ -1,21 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user.dart';
+part of 'user_info.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<User> _$userSerializer = new _$UserSerializer();
+Serializer<UserInfo> _$userInfoSerializer = new _$UserInfoSerializer();
 
-class _$UserSerializer implements StructuredSerializer<User> {
+class _$UserInfoSerializer implements StructuredSerializer<UserInfo> {
   @override
-  final Iterable<Type> types = const [User, _$User];
+  final Iterable<Type> types = const [UserInfo, _$UserInfo];
   @override
-  final String wireName = 'User';
+  final String wireName = 'UserInfo';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, User object,
+  Iterable<Object?> serialize(Serializers serializers, UserInfo object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -91,9 +91,9 @@ class _$UserSerializer implements StructuredSerializer<User> {
   }
 
   @override
-  User deserialize(Serializers serializers, Iterable<Object?> serialized,
+  UserInfo deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserBuilder();
+    final result = new UserInfoBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -151,7 +151,7 @@ class _$UserSerializer implements StructuredSerializer<User> {
   }
 }
 
-class _$User extends User {
+class _$UserInfo extends UserInfo {
   @override
   final String? supplementalDisplayName;
   @override
@@ -173,10 +173,10 @@ class _$User extends User {
   @override
   final int? bungieGlobalDisplayNameCode;
 
-  factory _$User([void Function(UserBuilder)? updates]) =>
-      (new UserBuilder()..update(updates))._build();
+  factory _$UserInfo([void Function(UserInfoBuilder)? updates]) =>
+      (new UserInfoBuilder()..update(updates))._build();
 
-  _$User._(
+  _$UserInfo._(
       {this.supplementalDisplayName,
       this.iconPath,
       this.crossSaveOverride,
@@ -190,16 +190,16 @@ class _$User extends User {
       : super._();
 
   @override
-  User rebuild(void Function(UserBuilder) updates) =>
+  UserInfo rebuild(void Function(UserInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserBuilder toBuilder() => new UserBuilder()..replace(this);
+  UserInfoBuilder toBuilder() => new UserInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is User &&
+    return other is UserInfo &&
         supplementalDisplayName == other.supplementalDisplayName &&
         iconPath == other.iconPath &&
         crossSaveOverride == other.crossSaveOverride &&
@@ -238,7 +238,7 @@ class _$User extends User {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'User')
+    return (newBuiltValueToStringHelper(r'UserInfo')
           ..add('supplementalDisplayName', supplementalDisplayName)
           ..add('iconPath', iconPath)
           ..add('crossSaveOverride', crossSaveOverride)
@@ -253,8 +253,8 @@ class _$User extends User {
   }
 }
 
-class UserBuilder implements Builder<User, UserBuilder> {
-  _$User? _$v;
+class UserInfoBuilder implements Builder<UserInfo, UserInfoBuilder> {
+  _$UserInfo? _$v;
 
   String? _supplementalDisplayName;
   String? get supplementalDisplayName => _$this._supplementalDisplayName;
@@ -303,9 +303,9 @@ class UserBuilder implements Builder<User, UserBuilder> {
   set bungieGlobalDisplayNameCode(int? bungieGlobalDisplayNameCode) =>
       _$this._bungieGlobalDisplayNameCode = bungieGlobalDisplayNameCode;
 
-  UserBuilder();
+  UserInfoBuilder();
 
-  UserBuilder get _$this {
+  UserInfoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _supplementalDisplayName = $v.supplementalDisplayName;
@@ -324,24 +324,24 @@ class UserBuilder implements Builder<User, UserBuilder> {
   }
 
   @override
-  void replace(User other) {
+  void replace(UserInfo other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$User;
+    _$v = other as _$UserInfo;
   }
 
   @override
-  void update(void Function(UserBuilder)? updates) {
+  void update(void Function(UserInfoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  User build() => _build();
+  UserInfo build() => _build();
 
-  _$User _build() {
-    _$User _$result;
+  _$UserInfo _build() {
+    _$UserInfo _$result;
     try {
       _$result = _$v ??
-          new _$User._(
+          new _$UserInfo._(
               supplementalDisplayName: supplementalDisplayName,
               iconPath: iconPath,
               crossSaveOverride: crossSaveOverride,
@@ -359,7 +359,7 @@ class UserBuilder implements Builder<User, UserBuilder> {
         _applicableMembershipTypes?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'User', _$failedField, e.toString());
+            r'UserInfo', _$failedField, e.toString());
       }
       rethrow;
     }

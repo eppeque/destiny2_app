@@ -13,7 +13,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(SearchByGlobalName.serializer)
       ..add(SearchResponse.serializer)
       ..add(SearchResponseDetail.serializer)
-      ..add(User.serializer)
+      ..add(UserInfo.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Article)]),
           () => new ListBuilder<Article>())
@@ -22,8 +22,8 @@ Serializers _$serializers = (new Serializers().toBuilder()
               BuiltList, const [const FullType(SearchResponseDetail)]),
           () => new ListBuilder<SearchResponseDetail>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(User)]),
-          () => new ListBuilder<User>())
+          const FullType(BuiltList, const [const FullType(UserInfo)]),
+          () => new ListBuilder<UserInfo>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(int)]),
           () => new ListBuilder<int>()))

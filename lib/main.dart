@@ -20,5 +20,10 @@ Future<void> main() async {
     yield LicenseEntryWithLineBreaks(['google_fonts'], license);
   });
 
-  runApp(Destiny2App(settingsController: settingsController, newsBloc: newsBloc));
+  runApp(
+    Destiny2App(
+      settingsController: settingsController,
+      newsBloc: newsBloc,
+    ),
+  );
 }

@@ -11,7 +11,7 @@ import 'package:destiny2_app/src/news/rss_news_articles.dart';
 import 'package:destiny2_app/src/search/search_by_global_name.dart';
 import 'package:destiny2_app/src/search/search_response.dart';
 import 'package:destiny2_app/src/search/search_response_detail.dart';
-import 'package:destiny2_app/src/search/user.dart';
+import 'package:destiny2_app/src/search/user_info.dart';
 
 part 'serializers.g.dart';
 
@@ -30,7 +30,7 @@ part 'serializers.g.dart';
   Article,
   ArticleResponse,
   RssNewsArticles,
-  User,
+  UserInfo,
   SearchByGlobalName,
   SearchResponse,
   SearchResponseDetail,
