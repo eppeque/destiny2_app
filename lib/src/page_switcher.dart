@@ -1,6 +1,8 @@
 import 'package:animations/animations.dart';
 import 'package:destiny2_app/src/news/news_bloc.dart';
 import 'package:destiny2_app/src/news/news_view.dart';
+import 'package:destiny2_app/src/search/search_bloc.dart';
+import 'package:destiny2_app/src/search/search_view.dart';
 import 'package:destiny2_app/src/settings/settings_view.dart';
 import 'package:flutter/material.dart';
 
@@ -30,6 +32,15 @@ class _PageSwitcherState extends State<PageSwitcher> {
         title: const Text('Destiny 2'),
         actions: [
           IconButton(
+            tooltip: 'Search player',
+            onPressed: () async {
+              final result = await showSearch(context: context, delegate: SearchView(SearchBloc()));
+
+              if (result == null) return;
+            },
+            icon: const Icon(Icons.search),
+          ),
+          IconButton(
             tooltip: 'App settings',
             icon: const Icon(Icons.settings_outlined),
             onPressed: () => Navigator.pushNamed(context, SettingsView.route),
@@ -48,7 +59,8 @@ class _PageSwitcherState extends State<PageSwitcher> {
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _selectedIndex,
-        onDestinationSelected: (index) => setState(() => _selectedIndex = index),
+        onDestinationSelected: (index) =>
+            setState(() => _selectedIndex = index),
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.newspaper_outlined),

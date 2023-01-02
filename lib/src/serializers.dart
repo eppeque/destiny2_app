@@ -8,6 +8,10 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:destiny2_app/src/news/article.dart';
 import 'package:destiny2_app/src/news/article_response.dart';
 import 'package:destiny2_app/src/news/rss_news_articles.dart';
+import 'package:destiny2_app/src/search/search_by_global_name.dart';
+import 'package:destiny2_app/src/search/search_response.dart';
+import 'package:destiny2_app/src/search/search_response_detail.dart';
+import 'package:destiny2_app/src/search/user.dart';
 
 part 'serializers.g.dart';
 
@@ -26,6 +30,10 @@ part 'serializers.g.dart';
   Article,
   ArticleResponse,
   RssNewsArticles,
+  User,
+  SearchByGlobalName,
+  SearchResponse,
+  SearchResponseDetail,
 ])
 final Serializers serializers = _$serializers;
 
