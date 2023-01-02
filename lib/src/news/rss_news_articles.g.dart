@@ -24,40 +24,7 @@ class _$RssNewsArticlesSerializer
       serializers.serialize(object.response,
           specifiedType: const FullType(ArticleResponse)),
     ];
-    Object? value;
-    value = object.errorCode;
-    if (value != null) {
-      result
-        ..add('ErrorCode')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.throttleSeconds;
-    if (value != null) {
-      result
-        ..add('ThrottleSeconds')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.errorStatus;
-    if (value != null) {
-      result
-        ..add('ErrorStatus')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.message;
-    if (value != null) {
-      result
-        ..add('Message')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.detailedErrorTrace;
-    if (value != null) {
-      result
-        ..add('DetailedErrorTrace')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
+
     return result;
   }
 
@@ -78,26 +45,6 @@ class _$RssNewsArticlesSerializer
                   specifiedType: const FullType(ArticleResponse))!
               as ArticleResponse);
           break;
-        case 'ErrorCode':
-          result.errorCode = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'ThrottleSeconds':
-          result.throttleSeconds = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'ErrorStatus':
-          result.errorStatus = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Message':
-          result.message = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'DetailedErrorTrace':
-          result.detailedErrorTrace = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
       }
     }
 
@@ -108,28 +55,11 @@ class _$RssNewsArticlesSerializer
 class _$RssNewsArticles extends RssNewsArticles {
   @override
   final ArticleResponse response;
-  @override
-  final int? errorCode;
-  @override
-  final int? throttleSeconds;
-  @override
-  final String? errorStatus;
-  @override
-  final String? message;
-  @override
-  final String? detailedErrorTrace;
 
   factory _$RssNewsArticles([void Function(RssNewsArticlesBuilder)? updates]) =>
       (new RssNewsArticlesBuilder()..update(updates))._build();
 
-  _$RssNewsArticles._(
-      {required this.response,
-      this.errorCode,
-      this.throttleSeconds,
-      this.errorStatus,
-      this.message,
-      this.detailedErrorTrace})
-      : super._() {
+  _$RssNewsArticles._({required this.response}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
         response, r'RssNewsArticles', 'response');
   }
@@ -145,36 +75,18 @@ class _$RssNewsArticles extends RssNewsArticles {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is RssNewsArticles &&
-        response == other.response &&
-        errorCode == other.errorCode &&
-        throttleSeconds == other.throttleSeconds &&
-        errorStatus == other.errorStatus &&
-        message == other.message &&
-        detailedErrorTrace == other.detailedErrorTrace;
+    return other is RssNewsArticles && response == other.response;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc(
-                $jc($jc($jc(0, response.hashCode), errorCode.hashCode),
-                    throttleSeconds.hashCode),
-                errorStatus.hashCode),
-            message.hashCode),
-        detailedErrorTrace.hashCode));
+    return $jf($jc(0, response.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'RssNewsArticles')
-          ..add('response', response)
-          ..add('errorCode', errorCode)
-          ..add('throttleSeconds', throttleSeconds)
-          ..add('errorStatus', errorStatus)
-          ..add('message', message)
-          ..add('detailedErrorTrace', detailedErrorTrace))
+          ..add('response', response))
         .toString();
   }
 }
@@ -188,39 +100,12 @@ class RssNewsArticlesBuilder
       _$this._response ??= new ArticleResponseBuilder();
   set response(ArticleResponseBuilder? response) => _$this._response = response;
 
-  int? _errorCode;
-  int? get errorCode => _$this._errorCode;
-  set errorCode(int? errorCode) => _$this._errorCode = errorCode;
-
-  int? _throttleSeconds;
-  int? get throttleSeconds => _$this._throttleSeconds;
-  set throttleSeconds(int? throttleSeconds) =>
-      _$this._throttleSeconds = throttleSeconds;
-
-  String? _errorStatus;
-  String? get errorStatus => _$this._errorStatus;
-  set errorStatus(String? errorStatus) => _$this._errorStatus = errorStatus;
-
-  String? _message;
-  String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
-
-  String? _detailedErrorTrace;
-  String? get detailedErrorTrace => _$this._detailedErrorTrace;
-  set detailedErrorTrace(String? detailedErrorTrace) =>
-      _$this._detailedErrorTrace = detailedErrorTrace;
-
   RssNewsArticlesBuilder();
 
   RssNewsArticlesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _response = $v.response.toBuilder();
-      _errorCode = $v.errorCode;
-      _throttleSeconds = $v.throttleSeconds;
-      _errorStatus = $v.errorStatus;
-      _message = $v.message;
-      _detailedErrorTrace = $v.detailedErrorTrace;
       _$v = null;
     }
     return this;
@@ -243,14 +128,7 @@ class RssNewsArticlesBuilder
   _$RssNewsArticles _build() {
     _$RssNewsArticles _$result;
     try {
-      _$result = _$v ??
-          new _$RssNewsArticles._(
-              response: response.build(),
-              errorCode: errorCode,
-              throttleSeconds: throttleSeconds,
-              errorStatus: errorStatus,
-              message: message,
-              detailedErrorTrace: detailedErrorTrace);
+      _$result = _$v ?? new _$RssNewsArticles._(response: response.build());
     } catch (_) {
       late String _$failedField;
       try {

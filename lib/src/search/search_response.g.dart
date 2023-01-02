@@ -29,19 +29,6 @@ class _$SearchResponseSerializer
             specifiedType: const FullType(
                 BuiltList, const [const FullType(SearchResponseDetail)])));
     }
-    value = object.page;
-    if (value != null) {
-      result
-        ..add('page')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.hasMore;
-    if (value != null) {
-      result
-        ..add('hasMore')
-        ..add(
-            serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
     return result;
   }
 
@@ -63,14 +50,6 @@ class _$SearchResponseSerializer
                       BuiltList, const [const FullType(SearchResponseDetail)]))!
               as BuiltList<Object?>);
           break;
-        case 'page':
-          result.page = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'hasMore':
-          result.hasMore = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool?;
-          break;
       }
     }
 
@@ -81,15 +60,11 @@ class _$SearchResponseSerializer
 class _$SearchResponse extends SearchResponse {
   @override
   final BuiltList<SearchResponseDetail>? searchResults;
-  @override
-  final int? page;
-  @override
-  final bool? hasMore;
 
   factory _$SearchResponse([void Function(SearchResponseBuilder)? updates]) =>
       (new SearchResponseBuilder()..update(updates))._build();
 
-  _$SearchResponse._({this.searchResults, this.page, this.hasMore}) : super._();
+  _$SearchResponse._({this.searchResults}) : super._();
 
   @override
   SearchResponse rebuild(void Function(SearchResponseBuilder) updates) =>
@@ -102,24 +77,18 @@ class _$SearchResponse extends SearchResponse {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SearchResponse &&
-        searchResults == other.searchResults &&
-        page == other.page &&
-        hasMore == other.hasMore;
+    return other is SearchResponse && searchResults == other.searchResults;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc($jc(0, searchResults.hashCode), page.hashCode), hasMore.hashCode));
+    return $jf($jc(0, searchResults.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'SearchResponse')
-          ..add('searchResults', searchResults)
-          ..add('page', page)
-          ..add('hasMore', hasMore))
+          ..add('searchResults', searchResults))
         .toString();
   }
 }
@@ -134,22 +103,12 @@ class SearchResponseBuilder
   set searchResults(ListBuilder<SearchResponseDetail>? searchResults) =>
       _$this._searchResults = searchResults;
 
-  int? _page;
-  int? get page => _$this._page;
-  set page(int? page) => _$this._page = page;
-
-  bool? _hasMore;
-  bool? get hasMore => _$this._hasMore;
-  set hasMore(bool? hasMore) => _$this._hasMore = hasMore;
-
   SearchResponseBuilder();
 
   SearchResponseBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _searchResults = $v.searchResults?.toBuilder();
-      _page = $v.page;
-      _hasMore = $v.hasMore;
       _$v = null;
     }
     return this;
@@ -172,11 +131,8 @@ class SearchResponseBuilder
   _$SearchResponse _build() {
     _$SearchResponse _$result;
     try {
-      _$result = _$v ??
-          new _$SearchResponse._(
-              searchResults: _searchResults?.build(),
-              page: page,
-              hasMore: hasMore);
+      _$result =
+          _$v ?? new _$SearchResponse._(searchResults: _searchResults?.build());
     } catch (_) {
       late String _$failedField;
       try {

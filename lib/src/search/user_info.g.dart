@@ -33,27 +33,6 @@ class _$UserInfoSerializer implements StructuredSerializer<UserInfo> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.crossSaveOverride;
-    if (value != null) {
-      result
-        ..add('crossSaveOverride')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.applicableMembershipTypes;
-    if (value != null) {
-      result
-        ..add('applicableMembershipTypes')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(int)])));
-    }
-    value = object.isPublic;
-    if (value != null) {
-      result
-        ..add('isPublic')
-        ..add(
-            serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
     value = object.membershipType;
     if (value != null) {
       result
@@ -109,21 +88,6 @@ class _$UserInfoSerializer implements StructuredSerializer<UserInfo> {
           result.iconPath = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'crossSaveOverride':
-          result.crossSaveOverride = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'applicableMembershipTypes':
-          result.applicableMembershipTypes.replace(serializers.deserialize(
-                  value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(int)]))!
-              as BuiltList<Object?>);
-          break;
-        case 'isPublic':
-          result.isPublic = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool?;
-          break;
         case 'membershipType':
           result.membershipType = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
@@ -157,12 +121,6 @@ class _$UserInfo extends UserInfo {
   @override
   final String? iconPath;
   @override
-  final int? crossSaveOverride;
-  @override
-  final BuiltList<int>? applicableMembershipTypes;
-  @override
-  final bool? isPublic;
-  @override
   final int? membershipType;
   @override
   final String? membershipId;
@@ -179,9 +137,6 @@ class _$UserInfo extends UserInfo {
   _$UserInfo._(
       {this.supplementalDisplayName,
       this.iconPath,
-      this.crossSaveOverride,
-      this.applicableMembershipTypes,
-      this.isPublic,
       this.membershipType,
       this.membershipId,
       this.displayName,
@@ -202,9 +157,6 @@ class _$UserInfo extends UserInfo {
     return other is UserInfo &&
         supplementalDisplayName == other.supplementalDisplayName &&
         iconPath == other.iconPath &&
-        crossSaveOverride == other.crossSaveOverride &&
-        applicableMembershipTypes == other.applicableMembershipTypes &&
-        isPublic == other.isPublic &&
         membershipType == other.membershipType &&
         membershipId == other.membershipId &&
         displayName == other.displayName &&
@@ -219,16 +171,8 @@ class _$UserInfo extends UserInfo {
             $jc(
                 $jc(
                     $jc(
-                        $jc(
-                            $jc(
-                                $jc(
-                                    $jc(
-                                        $jc(0,
-                                            supplementalDisplayName.hashCode),
-                                        iconPath.hashCode),
-                                    crossSaveOverride.hashCode),
-                                applicableMembershipTypes.hashCode),
-                            isPublic.hashCode),
+                        $jc($jc(0, supplementalDisplayName.hashCode),
+                            iconPath.hashCode),
                         membershipType.hashCode),
                     membershipId.hashCode),
                 displayName.hashCode),
@@ -241,9 +185,6 @@ class _$UserInfo extends UserInfo {
     return (newBuiltValueToStringHelper(r'UserInfo')
           ..add('supplementalDisplayName', supplementalDisplayName)
           ..add('iconPath', iconPath)
-          ..add('crossSaveOverride', crossSaveOverride)
-          ..add('applicableMembershipTypes', applicableMembershipTypes)
-          ..add('isPublic', isPublic)
           ..add('membershipType', membershipType)
           ..add('membershipId', membershipId)
           ..add('displayName', displayName)
@@ -264,21 +205,6 @@ class UserInfoBuilder implements Builder<UserInfo, UserInfoBuilder> {
   String? _iconPath;
   String? get iconPath => _$this._iconPath;
   set iconPath(String? iconPath) => _$this._iconPath = iconPath;
-
-  int? _crossSaveOverride;
-  int? get crossSaveOverride => _$this._crossSaveOverride;
-  set crossSaveOverride(int? crossSaveOverride) =>
-      _$this._crossSaveOverride = crossSaveOverride;
-
-  ListBuilder<int>? _applicableMembershipTypes;
-  ListBuilder<int> get applicableMembershipTypes =>
-      _$this._applicableMembershipTypes ??= new ListBuilder<int>();
-  set applicableMembershipTypes(ListBuilder<int>? applicableMembershipTypes) =>
-      _$this._applicableMembershipTypes = applicableMembershipTypes;
-
-  bool? _isPublic;
-  bool? get isPublic => _$this._isPublic;
-  set isPublic(bool? isPublic) => _$this._isPublic = isPublic;
 
   int? _membershipType;
   int? get membershipType => _$this._membershipType;
@@ -310,9 +236,6 @@ class UserInfoBuilder implements Builder<UserInfo, UserInfoBuilder> {
     if ($v != null) {
       _supplementalDisplayName = $v.supplementalDisplayName;
       _iconPath = $v.iconPath;
-      _crossSaveOverride = $v.crossSaveOverride;
-      _applicableMembershipTypes = $v.applicableMembershipTypes?.toBuilder();
-      _isPublic = $v.isPublic;
       _membershipType = $v.membershipType;
       _membershipId = $v.membershipId;
       _displayName = $v.displayName;
@@ -338,31 +261,15 @@ class UserInfoBuilder implements Builder<UserInfo, UserInfoBuilder> {
   UserInfo build() => _build();
 
   _$UserInfo _build() {
-    _$UserInfo _$result;
-    try {
-      _$result = _$v ??
-          new _$UserInfo._(
-              supplementalDisplayName: supplementalDisplayName,
-              iconPath: iconPath,
-              crossSaveOverride: crossSaveOverride,
-              applicableMembershipTypes: _applicableMembershipTypes?.build(),
-              isPublic: isPublic,
-              membershipType: membershipType,
-              membershipId: membershipId,
-              displayName: displayName,
-              bungieGlobalDisplayName: bungieGlobalDisplayName,
-              bungieGlobalDisplayNameCode: bungieGlobalDisplayNameCode);
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'applicableMembershipTypes';
-        _applicableMembershipTypes?.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'UserInfo', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    final _$result = _$v ??
+        new _$UserInfo._(
+            supplementalDisplayName: supplementalDisplayName,
+            iconPath: iconPath,
+            membershipType: membershipType,
+            membershipId: membershipId,
+            displayName: displayName,
+            bungieGlobalDisplayName: bungieGlobalDisplayName,
+            bungieGlobalDisplayNameCode: bungieGlobalDisplayNameCode);
     replace(_$result);
     return _$result;
   }

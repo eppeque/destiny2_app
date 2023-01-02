@@ -25,32 +25,7 @@ class _$ArticleResponseSerializer
           specifiedType:
               const FullType(BuiltList, const [const FullType(Article)])),
     ];
-    Object? value;
-    value = object.currentPaginationToken;
-    if (value != null) {
-      result
-        ..add('CurrentPaginationToken')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.nextPaginationToken;
-    if (value != null) {
-      result
-        ..add('NextPaginationToken')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.resultCountThisPage;
-    if (value != null) {
-      result
-        ..add('ResultCountThisPage')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.categoryFilter;
-    if (value != null) {
-      result
-        ..add('CategoryFilter')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
+
     return result;
   }
 
@@ -72,22 +47,6 @@ class _$ArticleResponseSerializer
                       BuiltList, const [const FullType(Article)]))!
               as BuiltList<Object?>);
           break;
-        case 'CurrentPaginationToken':
-          result.currentPaginationToken = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'NextPaginationToken':
-          result.nextPaginationToken = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'ResultCountThisPage':
-          result.resultCountThisPage = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'CategoryFilter':
-          result.categoryFilter = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
       }
     }
 
@@ -98,25 +57,11 @@ class _$ArticleResponseSerializer
 class _$ArticleResponse extends ArticleResponse {
   @override
   final BuiltList<Article> articles;
-  @override
-  final int? currentPaginationToken;
-  @override
-  final int? nextPaginationToken;
-  @override
-  final int? resultCountThisPage;
-  @override
-  final String? categoryFilter;
 
   factory _$ArticleResponse([void Function(ArticleResponseBuilder)? updates]) =>
       (new ArticleResponseBuilder()..update(updates))._build();
 
-  _$ArticleResponse._(
-      {required this.articles,
-      this.currentPaginationToken,
-      this.nextPaginationToken,
-      this.resultCountThisPage,
-      this.categoryFilter})
-      : super._() {
+  _$ArticleResponse._({required this.articles}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
         articles, r'ArticleResponse', 'articles');
   }
@@ -132,32 +77,18 @@ class _$ArticleResponse extends ArticleResponse {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ArticleResponse &&
-        articles == other.articles &&
-        currentPaginationToken == other.currentPaginationToken &&
-        nextPaginationToken == other.nextPaginationToken &&
-        resultCountThisPage == other.resultCountThisPage &&
-        categoryFilter == other.categoryFilter;
+    return other is ArticleResponse && articles == other.articles;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc($jc($jc(0, articles.hashCode), currentPaginationToken.hashCode),
-                nextPaginationToken.hashCode),
-            resultCountThisPage.hashCode),
-        categoryFilter.hashCode));
+    return $jf($jc(0, articles.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'ArticleResponse')
-          ..add('articles', articles)
-          ..add('currentPaginationToken', currentPaginationToken)
-          ..add('nextPaginationToken', nextPaginationToken)
-          ..add('resultCountThisPage', resultCountThisPage)
-          ..add('categoryFilter', categoryFilter))
+          ..add('articles', articles))
         .toString();
   }
 }
@@ -171,36 +102,12 @@ class ArticleResponseBuilder
       _$this._articles ??= new ListBuilder<Article>();
   set articles(ListBuilder<Article>? articles) => _$this._articles = articles;
 
-  int? _currentPaginationToken;
-  int? get currentPaginationToken => _$this._currentPaginationToken;
-  set currentPaginationToken(int? currentPaginationToken) =>
-      _$this._currentPaginationToken = currentPaginationToken;
-
-  int? _nextPaginationToken;
-  int? get nextPaginationToken => _$this._nextPaginationToken;
-  set nextPaginationToken(int? nextPaginationToken) =>
-      _$this._nextPaginationToken = nextPaginationToken;
-
-  int? _resultCountThisPage;
-  int? get resultCountThisPage => _$this._resultCountThisPage;
-  set resultCountThisPage(int? resultCountThisPage) =>
-      _$this._resultCountThisPage = resultCountThisPage;
-
-  String? _categoryFilter;
-  String? get categoryFilter => _$this._categoryFilter;
-  set categoryFilter(String? categoryFilter) =>
-      _$this._categoryFilter = categoryFilter;
-
   ArticleResponseBuilder();
 
   ArticleResponseBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _articles = $v.articles.toBuilder();
-      _currentPaginationToken = $v.currentPaginationToken;
-      _nextPaginationToken = $v.nextPaginationToken;
-      _resultCountThisPage = $v.resultCountThisPage;
-      _categoryFilter = $v.categoryFilter;
       _$v = null;
     }
     return this;
@@ -223,13 +130,7 @@ class ArticleResponseBuilder
   _$ArticleResponse _build() {
     _$ArticleResponse _$result;
     try {
-      _$result = _$v ??
-          new _$ArticleResponse._(
-              articles: articles.build(),
-              currentPaginationToken: currentPaginationToken,
-              nextPaginationToken: nextPaginationToken,
-              resultCountThisPage: resultCountThisPage,
-              categoryFilter: categoryFilter);
+      _$result = _$v ?? new _$ArticleResponse._(articles: articles.build());
     } catch (_) {
       late String _$failedField;
       try {
