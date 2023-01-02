@@ -10,21 +10,6 @@ abstract class RssNewsArticles implements Built<RssNewsArticles, RssNewsArticles
   @BuiltValueField(wireName: 'Response')
   ArticleResponse get response;
 
-  @BuiltValueField(wireName: 'ErrorCode')
-  int? get errorCode;
-
-  @BuiltValueField(wireName: 'ThrottleSeconds')
-  int? get throttleSeconds;
-
-  @BuiltValueField(wireName: 'ErrorStatus')
-  String? get errorStatus;
-
-  @BuiltValueField(wireName: 'Message')
-  String? get message;
-
-  @BuiltValueField(wireName: 'DetailedErrorTrace')
-  String? get detailedErrorTrace;
-
   RssNewsArticles._();
   factory RssNewsArticles([void Function(RssNewsArticlesBuilder) updates]) = _$RssNewsArticles;
 }

@@ -11,18 +11,6 @@ abstract class ArticleResponse implements Built<ArticleResponse, ArticleResponse
   @BuiltValueField(wireName: 'NewsArticles')
   BuiltList<Article> get articles;
 
-  @BuiltValueField(wireName: 'CurrentPaginationToken')
-  int? get currentPaginationToken;
-
-  @BuiltValueField(wireName: 'NextPaginationToken')
-  int? get nextPaginationToken;
-
-  @BuiltValueField(wireName: 'ResultCountThisPage')
-  int? get resultCountThisPage;
-
-  @BuiltValueField(wireName: 'CategoryFilter')
-  String? get categoryFilter;
-
   ArticleResponse._();
   factory ArticleResponse([void Function(ArticleResponseBuilder) updates]) = _$ArticleResponse;
 }

@@ -11,12 +11,6 @@ abstract class UserInfo implements Built<UserInfo, UserInfoBuilder> {
 
   String? get iconPath;
 
-  int? get crossSaveOverride;
-
-  BuiltList<int>? get applicableMembershipTypes;
-
-  bool? get isPublic;
-
   int? get membershipType;
 
   String? get membershipId;

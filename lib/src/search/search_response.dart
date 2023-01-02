@@ -10,10 +10,6 @@ abstract class SearchResponse implements Built<SearchResponse, SearchResponseBui
 
   BuiltList<SearchResponseDetail>? get searchResults;
 
-  int? get page;
-
-  bool? get hasMore;
-
   SearchResponse._();
   factory SearchResponse([void Function(SearchResponseBuilder) updates]) = _$SearchResponse;
 }

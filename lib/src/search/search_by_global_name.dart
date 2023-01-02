@@ -10,21 +10,6 @@ abstract class SearchByGlobalName implements Built<SearchByGlobalName, SearchByG
   @BuiltValueField(wireName: 'Response')
   SearchResponse get response;
 
-  @BuiltValueField(wireName: 'ErrorCode')
-  int? get errorCode;
-
-  @BuiltValueField(wireName: 'ThrottleSeconds')
-  int? get throttleSeconds;
-
-  @BuiltValueField(wireName: 'ErrorStatus')
-  String? get errorStatus;
-
-  @BuiltValueField(wireName: 'Message')
-  String? get message;
-
-  @BuiltValueField(wireName: 'DetailedErrorTrace')
-  String? get detailedErrorTrace;
-
   SearchByGlobalName._();
   factory SearchByGlobalName([void Function(SearchByGlobalNameBuilder) updates]) = _$SearchByGlobalName;
 }
