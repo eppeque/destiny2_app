@@ -1,5 +1,5 @@
 import 'package:destiny2_app/src/search/search_bloc.dart';
-import 'package:destiny2_app/src/search/user_info.dart';
+import 'package:destiny2_app/src/search/values/user_info.dart';
 import 'package:flutter/material.dart';
 
 class SearchView extends SearchDelegate<UserInfo?> {

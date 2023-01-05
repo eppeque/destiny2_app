@@ -1,10 +1,10 @@
 import 'package:animations/animations.dart';
 import 'package:destiny2_app/src/news/news_bloc.dart';
 import 'package:destiny2_app/src/news/news_view.dart';
-import 'package:destiny2_app/src/search/profile_view.dart';
+import 'package:destiny2_app/src/profile_details/profile_view.dart';
 import 'package:destiny2_app/src/search/search_bloc.dart';
 import 'package:destiny2_app/src/search/search_view.dart';
-import 'package:destiny2_app/src/search/user_info.dart';
+import 'package:destiny2_app/src/search/values/user_info.dart';
 import 'package:destiny2_app/src/settings/settings_view.dart';
 import 'package:flutter/material.dart';
 

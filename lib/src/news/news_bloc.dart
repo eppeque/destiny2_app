@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:destiny2_app/src/api_key.dart';
-import 'package:destiny2_app/src/news/rss_news_articles.dart';
+import 'package:destiny2_app/src/news/values/rss_news_articles.dart';
 import 'package:destiny2_app/src/serializers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;

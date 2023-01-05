@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:destiny2_app/src/api_key.dart';
-import 'package:destiny2_app/src/search/search_by_global_name.dart';
+import 'package:destiny2_app/src/search/values/search_by_global_name.dart';
 import 'package:destiny2_app/src/serializers.dart';
 import 'package:http/http.dart' as http;
 

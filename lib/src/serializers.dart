@@ -5,13 +5,20 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
-import 'package:destiny2_app/src/news/article.dart';
-import 'package:destiny2_app/src/news/article_response.dart';
-import 'package:destiny2_app/src/news/rss_news_articles.dart';
-import 'package:destiny2_app/src/search/search_by_global_name.dart';
-import 'package:destiny2_app/src/search/search_response.dart';
-import 'package:destiny2_app/src/search/search_response_detail.dart';
-import 'package:destiny2_app/src/search/user_info.dart';
+import 'package:destiny2_app/src/news/values/article.dart';
+import 'package:destiny2_app/src/news/values/article_response.dart';
+import 'package:destiny2_app/src/news/values/rss_news_articles.dart';
+import 'package:destiny2_app/src/profile_details/values/character_dictionary.dart';
+import 'package:destiny2_app/src/profile_details/values/component_dictionary.dart';
+import 'package:destiny2_app/src/profile_details/values/destiny_character.dart';
+import 'package:destiny2_app/src/profile_details/values/destiny_profile_response.dart';
+import 'package:destiny2_app/src/profile_details/values/get_profile.dart';
+import 'package:destiny2_app/src/profile_details/values/inventory_component.dart';
+import 'package:destiny2_app/src/profile_details/values/item_component.dart';
+import 'package:destiny2_app/src/search/values/search_by_global_name.dart';
+import 'package:destiny2_app/src/search/values/search_response.dart';
+import 'package:destiny2_app/src/search/values/search_response_detail.dart';
+import 'package:destiny2_app/src/search/values/user_info.dart';
 
 part 'serializers.g.dart';
 
@@ -34,6 +41,13 @@ part 'serializers.g.dart';
   SearchByGlobalName,
   SearchResponse,
   SearchResponseDetail,
+  GetProfile,
+  CharacterDictionary,
+  ComponentDictionary,
+  DestinyCharacter,
+  DestinyProfileResponse,
+  InventoryComponent,
+  ItemComponent,
 ])
 final Serializers serializers = _$serializers;
 
