@@ -23,13 +23,13 @@ class NewsView extends StatelessWidget {
             itemBuilder: (context, index) {
               final article = articles[index];
               final link = "https://bungie.net${article.link!}";
-              return GestureDetector(
-                onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => WebpageView(url: link),
+              return Card(
+                child: InkWell(
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => WebpageView(url: link),
+                    ),
                   ),
-                ),
-                child: Card(
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
