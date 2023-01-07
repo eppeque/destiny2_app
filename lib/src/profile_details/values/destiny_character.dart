@@ -33,7 +33,12 @@ abstract class DestinyCharacter implements Built<DestinyCharacter, DestinyCharac
 }
 
 enum Stat {
-  mobility('Mobility'), resilience('Resilience'), recovery('Recovery'), discipline('Discipline'), intellect('Intellect'), strength('Strength');
+  mobility('Mobility'),
+  resilience('Resilience'),
+  recovery('Recovery'),
+  discipline('Discipline'),
+  intellect('Intellect'),
+  strength('Strength');
 
   const Stat(this.name);
   final String name;
@@ -57,7 +62,9 @@ enum Stat {
 }
 
 enum Class {
-  titan('Titan'), hunter('Hunter'), warlock('Warlock');
+  titan('Titan'),
+  hunter('Hunter'),
+  warlock('Warlock');
 
   final String name;
   const Class(this.name);
