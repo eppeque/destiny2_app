@@ -1,5 +1,4 @@
 import 'package:destiny2_app/src/app.dart';
-import 'package:destiny2_app/src/news/news_bloc.dart';
 import 'package:destiny2_app/src/search/search_history.dart';
 import 'package:destiny2_app/src/settings/settings_controller.dart';
 import 'package:destiny2_app/src/settings/settings_service.dart';
@@ -15,9 +14,6 @@ Future<void> main() async {
 
   final settingsController = SettingsController(SettingsService());
   await settingsController.initSettings();
-
-  final newsBloc = NewsBloc();
-  await newsBloc.load();
 
   LicenseRegistry.addLicense(() async* {
     final license = await rootBundle.loadString('fonts/OFL.txt');
@@ -38,7 +34,6 @@ Future<void> main() async {
       create: (context) => SearchHistory(database),
       child: Destiny2App(
         settingsController: settingsController,
-        newsBloc: newsBloc,
       ),
     ),
   );

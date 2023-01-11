@@ -1,4 +1,3 @@
-import 'package:destiny2_app/src/news/news_bloc.dart';
 import 'package:destiny2_app/src/page_switcher.dart';
 import 'package:destiny2_app/src/settings/settings_controller.dart';
 import 'package:destiny2_app/src/settings/settings_view.dart';
@@ -7,9 +6,8 @@ import 'package:flutter/material.dart';
 
 class Destiny2App extends StatelessWidget {
   final SettingsController settingsController;
-  final NewsBloc newsBloc;
 
-  const Destiny2App({super.key, required this.settingsController, required this.newsBloc});
+  const Destiny2App({super.key, required this.settingsController});
 
   static const _appColor = Color(0xFF007B83);
 
@@ -41,7 +39,7 @@ class Destiny2App extends StatelessWidget {
               darkTheme: darkTheme,
               themeMode: settingsController.themeMode,
               routes: {
-                PageSwitcher.route: (context) => PageSwitcher(newsBloc: newsBloc),
+                PageSwitcher.route: (context) => const PageSwitcher(),
                 SettingsView.route:(context) => SettingsView(settingsController: settingsController),
               },
             );
