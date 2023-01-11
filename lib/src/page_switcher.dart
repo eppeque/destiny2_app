@@ -41,7 +41,7 @@ class _PageSwitcherState extends State<PageSwitcher> {
   Widget build(BuildContext context) {
     final pages = <Widget>[
       NewsView(newsBloc: widget.newsBloc),
-      Container(),
+      const Placeholder(),
     ];
 
     return Scaffold(

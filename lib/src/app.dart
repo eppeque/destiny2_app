@@ -17,19 +17,18 @@ class Destiny2App extends StatelessWidget {
   Widget build(BuildContext context) {
     return DynamicColorBuilder(
       builder: (ColorScheme? light, ColorScheme? dark) {
+        final defaultScheme = ColorScheme.fromSeed(seedColor: _appColor);
+
         final lightTheme = ThemeData(
           useMaterial3: true,
-          colorScheme: light,
-          colorSchemeSeed: light == null ? _appColor : null,
+          colorScheme: light ?? defaultScheme,
           fontFamily: 'Zen Kaku Gothic Antique',
         );
 
         final darkTheme = ThemeData(
           useMaterial3: true,
-          colorScheme: dark,
-          colorSchemeSeed: dark == null ? _appColor : null,
+          colorScheme: dark ?? defaultScheme.copyWith(brightness: Brightness.dark),
           fontFamily: 'Zen Kaku Gothic Antique',
-          brightness: Brightness.dark,
         );
 
         return AnimatedBuilder(

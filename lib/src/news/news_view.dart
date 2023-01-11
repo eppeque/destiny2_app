@@ -24,7 +24,8 @@ class NewsView extends StatelessWidget {
               final article = articles[index];
               final link = "https://bungie.net${article.link!}";
               return Card(
-                margin: const EdgeInsets.all(8.0),
+                color: Theme.of(context).colorScheme.primaryContainer,
+                margin: const EdgeInsets.all(16.0),
                 child: InkWell(
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(
@@ -47,7 +48,9 @@ class NewsView extends StatelessWidget {
                         child: Text(
                           article.title!,
                           textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.titleLarge,
+                          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                            color: Theme.of(context).colorScheme.onPrimaryContainer,
+                          ),
                         ),
                       ),
                       const SizedBox(height: 8.0),
@@ -56,7 +59,9 @@ class NewsView extends StatelessWidget {
                         child: Text(
                           article.description!,
                           textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.bodyLarge,
+                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            color: Theme.of(context).colorScheme.onPrimaryContainer,
+                          ),
                         ),
                       ),
                       const SizedBox(height: 8.0),
