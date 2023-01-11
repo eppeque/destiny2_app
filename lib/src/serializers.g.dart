@@ -13,6 +13,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(ComponentDictionary.serializer)
       ..add(DestinyCharacter.serializer)
       ..add(DestinyProfileResponse.serializer)
+      ..add(DestinyRecordDefinition.serializer)
       ..add(GetProfile.serializer)
       ..add(InventoryComponent.serializer)
       ..add(ItemComponent.serializer)
@@ -20,6 +21,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(SearchByGlobalName.serializer)
       ..add(SearchResponse.serializer)
       ..add(SearchResponseDetail.serializer)
+      ..add(TitleInfo.serializer)
       ..add(UserInfo.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Article)]),
@@ -44,6 +46,10 @@ Serializers _$serializers = (new Serializers().toBuilder()
             const FullType(InventoryComponent)
           ]),
           () => new MapBuilder<String, InventoryComponent>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltMap, const [const FullType(String), const FullType(String)]),
+          () => new MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(int)]),

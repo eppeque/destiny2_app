@@ -9,7 +9,7 @@ Future<Map<String, dynamic>> fetchFromManifest(String entityType, int hashIdenti
   final res = await http.get(url, headers: {'X-API-Key': apiKey});
 
   if (res.statusCode == 200) {
-    return jsonDecode(res.body) as Map<String, dynamic>;
+    return (jsonDecode(res.body) as Map<String, dynamic>)['Response'];
   }
 
   throw BungieApiError(res.reasonPhrase!);

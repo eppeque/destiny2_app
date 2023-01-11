@@ -25,7 +25,6 @@ abstract class DestinyCharacter implements Built<DestinyCharacter, DestinyCharac
 
   String get emblemBackgroundPath;
 
-  @nullable
   int? get titleRecordHash;
 
   DestinyCharacter._();

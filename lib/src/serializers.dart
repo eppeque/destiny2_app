@@ -12,9 +12,11 @@ import 'package:destiny2_app/src/profile_details/values/character_dictionary.dar
 import 'package:destiny2_app/src/profile_details/values/component_dictionary.dart';
 import 'package:destiny2_app/src/profile_details/values/destiny_character.dart';
 import 'package:destiny2_app/src/profile_details/values/destiny_profile_response.dart';
+import 'package:destiny2_app/src/profile_details/values/destiny_record_definition.dart';
 import 'package:destiny2_app/src/profile_details/values/get_profile.dart';
 import 'package:destiny2_app/src/profile_details/values/inventory_component.dart';
 import 'package:destiny2_app/src/profile_details/values/item_component.dart';
+import 'package:destiny2_app/src/profile_details/values/title_info.dart';
 import 'package:destiny2_app/src/search/values/search_by_global_name.dart';
 import 'package:destiny2_app/src/search/values/search_response.dart';
 import 'package:destiny2_app/src/search/values/search_response_detail.dart';
@@ -48,6 +50,8 @@ part 'serializers.g.dart';
   DestinyProfileResponse,
   InventoryComponent,
   ItemComponent,
+  DestinyRecordDefinition,
+  TitleInfo,
 ])
 final Serializers serializers = _$serializers;
 

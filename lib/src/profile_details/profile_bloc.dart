@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:destiny2_app/src/api_key.dart';
+import 'package:destiny2_app/src/manifest.dart';
+import 'package:destiny2_app/src/profile_details/values/destiny_record_definition.dart';
 import 'package:destiny2_app/src/profile_details/values/get_profile.dart';
 import 'package:destiny2_app/src/search/search_bloc.dart';
 import 'package:destiny2_app/src/serializers.dart';
@@ -16,4 +18,16 @@ Future<GetProfile> loadProfile(int membershipType, String membershipId) async {
   }
 
   throw BungieApiError(res.reasonPhrase!);
+}
+
+Future<DestinyRecordDefinition> loadTitle(int titleRecordHash) async {
+  final parsed = await fetchFromManifest('DestinyRecordDefinition', titleRecordHash);
+  var result = standardSerializers.deserializeWith(DestinyRecordDefinition.serializer, parsed)!;
+
+  while (result.titleInfo.gildingTrackingRecordHash != null) {
+    final newResult = await fetchFromManifest('DestinyRecordDefinition', result.titleInfo.gildingTrackingRecordHash!);
+    result = standardSerializers.deserializeWith(DestinyRecordDefinition.serializer, newResult)!;
+  }
+
+  return result;
 }

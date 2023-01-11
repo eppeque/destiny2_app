@@ -40,9 +40,9 @@ class ProfileView extends StatelessWidget {
 
                     return Container(
                       padding: const EdgeInsets.all(8.0),
-                      margin: const EdgeInsets.all(16.0),
+                      margin: const EdgeInsets.all(8.0),
                       width: double.infinity,
-                      height: 75,
+                      height: 80,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: NetworkImage(
@@ -54,10 +54,52 @@ class ProfileView extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 70.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  characterClass.name,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineMedium!
+                                      .copyWith(color: Colors.white),
+                                ),
+                                character.titleRecordHash != null
+                                    ? FutureBuilder(
+                                        future: loadTitle(
+                                            character.titleRecordHash!),
+                                        builder: (context, snapshot) {
+                                          if (!snapshot.hasData) {
+                                            return const Text('Loading...');
+                                          }
+
+                                          final data = snapshot.data!;
+
+                                          return Text(
+                                            data.titleInfo.titlesByGender['Male']!,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyLarge!
+                                                .copyWith(
+                                                  color: data.forTitleGilding
+                                                      ? Colors.orange
+                                                      : Colors.white,
+                                                ),
+                                          );
+                                        },
+                                      )
+                                    : Container(),
+                              ],
+                            ),
+                          ),
                           Text(
-                            "${characterClass.name} - ${character.light}",
-                            style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Colors.white),
+                            character.light.toString(),
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineMedium!
+                                .copyWith(color: Colors.yellow),
                           ),
                         ],
                       ),
